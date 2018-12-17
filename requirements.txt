@@ -1,0 +1,5 @@
+pynamodb
+boto3
+flask
+pluginbase
+zappa
