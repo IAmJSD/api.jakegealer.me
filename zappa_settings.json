@@ -1,0 +1,17 @@
+{
+    "production": {
+        "app_function": "main.server",
+        "aws_region": "eu-west-1",
+        "profile_name": "default",
+        "project_name": "jgapi",
+        "runtime": "python3.6",
+        "s3_bucket": "api.jakegealer.me",
+        "certificate_arn": "CERTIFICATE_ARN_HERE",
+        "domain": "api.jakegealer.me",
+        "extra_permissions": [{
+            "Effect": "Allow",
+            "Action": ["ses:*"],
+            "Resource": "*"
+        }]
+    }
+}
