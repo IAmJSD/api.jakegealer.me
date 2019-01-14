@@ -1,7 +1,8 @@
 language: python
 python: 3.6
 script:
-    - echo "no script"
+    - mkdir ~/.aws
+    - echo "[default]\nregion=eu-west-2" > ~/.aws/config
 deploy:
     provider: script
     script: zappa update production
