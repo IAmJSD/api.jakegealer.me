@@ -2,9 +2,6 @@ language: python
 python: 3.6
 script:
     - echo "no script"
-before_install:
-    - mkdir ~/.aws
-    - echo "[default]\r\naws_access_key_id=${AWS_ACCESS_KEY_ID}\r\naws_secret_access_key=${AWS_SECRET_ACCESS_KEY}\r\n" > ~/.aws/credentials
 deploy:
     provider: script
     script: zappa update production
