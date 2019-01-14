@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from models import U15EmailKeys
+from models import U15EmailKeys, U15HitCounter
 import boto3
 from botocore.exceptions import ClientError
 # Imports go here.
@@ -60,6 +60,20 @@ def form_email_handler():
         return e.response['Error']['Message'], 500
 
     return '', 204
+
+
+@api_v1.route("/college/u15/counter/<counter_id>")
+def hit_counter():
+    """This function handles my webpage hit counter."""
+    try:
+        counter = U15HitCounter.get(counter_id)
+    except U15HitCounter.DoesNotExist:
+        counter = U15HitCounter(counter_id=counter_id, count=0)
+
+    counter.count += 1
+    counter.save()
+
+    return str(counter.count), 200
 
 
 def setup(server):
