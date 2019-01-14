@@ -1,9 +1,0 @@
-language: python
-python: 3.6
-script:
-    - echo "no script"
-deploy:
-    provider: script
-    script: zappa update production
-    on:
-        branch: master
