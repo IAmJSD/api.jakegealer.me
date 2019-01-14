@@ -1,5 +1,7 @@
 language: python
 python: 3.6
+script:
+    - echo "No tests needed."
 deploy:
     provider: script
     script: zappa update production
