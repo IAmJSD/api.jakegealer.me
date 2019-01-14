@@ -1,7 +1,8 @@
 language: python
 python: 3.6
 script:
-    - echo "No tests needed."
+    - mkdir ~/.aws
+    - echo "[default]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials
 deploy:
     provider: script
     script: zappa update production
