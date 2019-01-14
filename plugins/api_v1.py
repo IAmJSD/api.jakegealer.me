@@ -63,7 +63,7 @@ def form_email_handler():
 
 
 @api_v1.route("/college/u15/counter/<counter_id>")
-def hit_counter():
+def hit_counter(counter_id):
     """This function handles my webpage hit counter."""
     try:
         counter = U15HitCounter.get(counter_id)
