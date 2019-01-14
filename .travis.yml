@@ -1,6 +1,8 @@
 language: python
 python: 3.6
 script:
+    - echo "no script"
+before_install:
     - mkdir ~/.aws
     - echo "[default]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY\n" > ~/.aws/credentials
 deploy:
