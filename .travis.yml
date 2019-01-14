@@ -2,7 +2,7 @@ language: python
 python: 3.6
 script:
     - mkdir ~/.aws
-    - echo "[default]\nregion=eu-west-2" > ~/.aws/config
+    - echo "[default]\nregion=eu-west-2\naws_secret_access_key=${AWS_SECRET_ACCESS_KEY}\naws_access_key_id=${AWS_ACCESS_KEY_ID}" > ~/.aws/config
 deploy:
     provider: script
     script: zappa update production
