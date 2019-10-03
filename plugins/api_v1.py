@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from models import U15EmailKeys, U15HitCounter
+from models import U15EmailKeys, U15HitCounter, 
 import boto3
 from botocore.exceptions import ClientError
 # Imports go here.
@@ -74,6 +74,13 @@ def hit_counter(counter_id):
     counter.save()
 
     return str(counter.count), 200
+
+
+@api_v1.route("/college/scoreboard/<int:count>/<int:seconds>")
+def add_to_scoreboard(count, seconds):
+    """This function handles the scoreboard."""
+    GlobalScoreboard(score=score, seconds=seconds).save()
+    return '', 204
 
 
 def setup(server):
